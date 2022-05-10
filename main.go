@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"net/http"
+	"os"
 
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
@@ -12,6 +13,7 @@ import (
 const (
 	hdrRequestId = "X-Request-ID"
 	appAddr      = "0.0.0.0:4040"
+	logFile      = "_logs/observability.log"
 )
 
 func init() {
@@ -19,6 +21,11 @@ func init() {
 		FullTimestamp: true,
 	})
 	logrus.SetLevel(logrus.DebugLevel)
+	// Set JSON formatter. Comment out this line to have the text output.
+	logrus.SetFormatter(&logrus.JSONFormatter{})
+	// Set logging to a file. Comment out following 2 lines to log on the console.
+	f := getLogFile()
+	logrus.SetOutput(f)
 }
 
 func main() {
@@ -73,4 +80,12 @@ func requestLog(f, id string) *logrus.Entry {
 
 func funcLog(f string) *logrus.Entry {
 	return logrus.WithField("func", f)
+}
+
+func getLogFile() *os.File {
+	f, err := os.OpenFile(logFile, os.O_WRONLY|os.O_CREATE, 0644)
+	if err != nil {
+		funcLog("getLogFile").Fatalf("log file %s can't be created: %v", logFile, err)
+	}
+	return f
 }

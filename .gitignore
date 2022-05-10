@@ -1,3 +1,6 @@
 observability
+_logs/tmp/
+_logs/*.log
+_logs/*.yaml
 .idea/
 *.iml
