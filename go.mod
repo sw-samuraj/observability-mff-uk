@@ -1,4 +1,4 @@
-module cz.sw-samuraj/observability
+module cz.sw-samuraj/mff/observability
 
 go 1.18
 
