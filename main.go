@@ -17,15 +17,16 @@ const (
 )
 
 func init() {
+	logrus.SetLevel(logrus.DebugLevel)
+	// Set test formatter. Use this line to have the text output.
 	logrus.SetFormatter(&logrus.TextFormatter{
 		FullTimestamp: true,
 	})
-	logrus.SetLevel(logrus.DebugLevel)
-	// Set JSON formatter. Comment out this line to have the text output.
-	logrus.SetFormatter(&logrus.JSONFormatter{})
+	// Set JSON formatter. Use this line to have the json output.
+	// logrus.SetFormatter(&logrus.JSONFormatter{})
 	// Set logging to a file. Comment out following 2 lines to log on the console.
-	f := getLogFile()
-	logrus.SetOutput(f)
+	// f := getLogFile()
+	// logrus.SetOutput(f)
 }
 
 func main() {
