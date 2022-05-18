@@ -6,13 +6,13 @@ positions:
   filename: _logs/positions.yaml
 
 clients:
-  - url: http://localhost:3100/loki/api/v1/push
+  - url: http://grafana.edu.dobias.info:3100/loki/api/v1/push
 
 scrape_configs:
-- job_name: blog-observability
+- job_name: student-app-observability
   static_configs:
   - targets:
       - localhost
     labels:
-      job: blog-app-logs
+      job: student-app-logs
       __path__: _logs/*.log

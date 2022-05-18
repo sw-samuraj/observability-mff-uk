@@ -1,5 +1,6 @@
 observability
-_logs/tmp/
+_tmp/loki
+_tmp/prometheus
 _logs/*.log
 _logs/*.yaml
 .idea/
