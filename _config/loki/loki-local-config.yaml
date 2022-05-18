@@ -5,11 +5,11 @@ server:
   grpc_listen_port: 9096
 
 common:
-  path_prefix: _logs/tmp/loki
+  path_prefix: _tmp/loki
   storage:
     filesystem:
-      chunks_directory: _logs/tmp/loki/chunks
-      rules_directory: _logs/tmp/loki/rules
+      chunks_directory: _tmp/loki/chunks
+      rules_directory: _tmp/loki/rules
   replication_factor: 1
   ring:
     instance_addr: 127.0.0.1
