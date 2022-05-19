@@ -66,6 +66,7 @@ func funcLog(f string) *logrus.Entry {
 	return logrus.WithFields(logrus.Fields{
 		"app":  appName,
 		"func": f,
+		// TODO Vita: add hostname and/or ip address
 	})
 }
 

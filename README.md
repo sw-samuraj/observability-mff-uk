@@ -272,7 +272,7 @@ curl -v <vaše IP adresa>:4040/
 Případně pro poslání většího počtu requestů můžete použít skript `curl-load.sh`,
 kde upravíte parametry `MAX_REQ` a `URL`.
 
-### 8. Kontrola observability dat _Grafaně_.
+### 8. Kontrola observability dat v _Grafaně_.
 
 Vizualizaci vašich observability dat si můžete prohlédnout v Grafaně, která běží
 na adrese [http://grafana.edu.dobias.info:3000/](//grafana.edu.dobias.info:3000/)
