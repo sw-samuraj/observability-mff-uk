@@ -204,7 +204,7 @@ scp observability opc@<vaše IP adresa>:~
 
 O pushování logů do logging backendu (Loki) se stará aplikace `promtail` - tu je potřeba
 také nahrát na vaše VM. Aplikaci si stáhnete zde:
-[loki-linux-amd64.zip](//github.com/grafana/loki/releases/download/v2.4.2/loki-linux-amd64.zip).
+[promtail-linux-amd64.zip](//github.com/grafana/loki/releases/download/v2.4.2/promtail-linux-amd64.zip).
 Spolu s ní je také potřeba na VM nahrát její konfigurační soubor:
 
 ```shell
