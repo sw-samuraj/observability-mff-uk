@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+	"os"
+
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 	"go.opentelemetry.io/otel"
-	"net/http"
-	"os"
 )
 
 func loggingMiddleware(next http.Handler) http.Handler {
@@ -75,7 +76,7 @@ func getLogFile() *os.File {
 	if appName != defaultAppName {
 		file = fmt.Sprintf(logFilePattern, appName)
 	}
-	f, err := os.OpenFile(file, os.O_WRONLY|os.O_CREATE, 0644)
+	f, err := os.OpenFile(file, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
 	if err != nil {
 		funcLog("getLogFile").Fatalf("log file %s can't be created: %v", logFile, err)
 	}
